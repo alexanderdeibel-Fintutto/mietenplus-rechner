@@ -118,7 +118,17 @@ export const useGoogleMapsAutocomplete = ({
       if (!inputRef.current) return;
 
       try {
-        // Fetch the API key from the edge function
+        // Check if user is authenticated
+        const { data: { session } } = await supabase.auth.getSession();
+        
+        if (!session) {
+          console.error('User not authenticated - Google Maps requires authentication');
+          setError('Anmeldung erforderlich für Adresseingabe');
+          setIsLoading(false);
+          return;
+        }
+
+        // Fetch the API key from the edge function (auth token passed automatically)
         const { data, error: fetchError } = await supabase.functions.invoke('google-maps-key');
         
         if (fetchError || !data?.apiKey) {
