@@ -74,12 +74,23 @@ const sanitizeCssKey = (key: string): string => {
   return key.replace(/[^a-zA-Z0-9-_]/g, '');
 };
 
+// Validate chart ID to prevent CSS injection
+const isValidChartId = (id: string): boolean => {
+  if (!id || typeof id !== 'string') return false;
+  // Only allow alphanumeric characters, hyphens, and underscores
+  return /^[a-zA-Z0-9-_]+$/.test(id);
+};
+
 const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
   const colorConfig = Object.entries(config).filter(([_, config]) => config.theme || config.color);
 
-  if (!colorConfig.length) {
+  // Validate chart ID to prevent CSS injection
+  if (!colorConfig.length || !isValidChartId(id)) {
     return null;
   }
+
+  // Sanitize the ID for safe use in CSS selector
+  const safeId = id.replace(/[^a-zA-Z0-9-_]/g, '');
 
   return (
     <style
@@ -87,7 +98,7 @@ const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
         __html: Object.entries(THEMES)
           .map(
             ([theme, prefix]) => `
-${prefix} [data-chart=${id}] {
+${prefix} [data-chart=${safeId}] {
 ${colorConfig
   .map(([key, itemConfig]) => {
     const color = itemConfig.theme?.[theme as keyof typeof itemConfig.theme] || itemConfig.color;
