@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        heading: ['DM Sans', 'Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -69,12 +69,11 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        yield: {
-          excellent: "hsl(var(--yield-excellent))",
-          good: "hsl(var(--yield-good))",
-          ok: "hsl(var(--yield-ok))",
-          weak: "hsl(var(--yield-weak))",
-          bad: "hsl(var(--yield-bad))",
+        result: {
+          primary: "hsl(var(--result-primary))",
+          success: "hsl(var(--result-success))",
+          warning: "hsl(var(--result-warning))",
+          muted: "hsl(var(--result-muted))",
         },
       },
       borderRadius: {
