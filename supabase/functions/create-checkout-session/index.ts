@@ -29,7 +29,7 @@ serve(async (req) => {
     const authHeader = req.headers.get('Authorization')
     if (!authHeader?.startsWith('Bearer ')) {
       return new Response(
-        JSON.stringify({ error: 'Unauthorized' }),
+        JSON.stringify({ error: 'Nicht autorisiert' }),
         { status: 401, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       )
     }
@@ -44,7 +44,7 @@ serve(async (req) => {
     const { data: claimsData, error: claimsError } = await supabaseClient.auth.getUser(token)
     if (claimsError || !claimsData.user) {
       return new Response(
-        JSON.stringify({ error: 'Unauthorized' }),
+        JSON.stringify({ error: 'Nicht autorisiert' }),
         { status: 401, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       )
     }
@@ -54,7 +54,7 @@ serve(async (req) => {
 
     if (!priceId || !successUrl || !cancelUrl) {
       return new Response(
-        JSON.stringify({ error: 'Missing required fields: priceId, successUrl, cancelUrl' }),
+        JSON.stringify({ error: 'Fehlende Pflichtfelder: priceId, successUrl, cancelUrl' }),
         { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       )
     }
