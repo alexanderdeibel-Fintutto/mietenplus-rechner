@@ -57,6 +57,6 @@ export function isValidRedirectUrl(url: string): boolean {
  */
 export function validateRedirectUrl(url: string, fieldName: string): void {
   if (!isValidRedirectUrl(url)) {
-    throw new Error(`Invalid ${fieldName}: URL must be from an allowed domain`);
+    throw new Error(`Ungültige ${fieldName}: URL muss von einer erlaubten Domain stammen`);
   }
 }
