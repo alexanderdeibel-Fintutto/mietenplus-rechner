@@ -8,18 +8,18 @@ interface MieterhoehungHeaderProps {
 
 export function MieterhoehungHeader({ onLoginClick }: MieterhoehungHeaderProps) {
   return (
-    <header className="border-b border-border bg-card/80 backdrop-blur-sm sticky top-0 z-50">
+    <header className="border-b border-white/20 sticky top-0 z-50" style={{ background: "url('/images/hero-bg.png') center/cover no-repeat" }}>
       <div className="container flex items-center justify-between h-16">
         <div className="flex items-center gap-2">
           <img src={logo} alt="Fintutto" className="h-8 w-8" />
-          <span className="font-heading font-semibold text-lg">Mieterhöhungs-Rechner</span>
+          <span className="font-heading font-semibold text-lg text-white">Mieterhöhungs-Rechner</span>
         </div>
         
         <div className="flex items-center gap-4">
-          <Button variant="ghost" size="sm" asChild>
+          <Button variant="ghost" size="sm" asChild className="text-white/80 hover:text-white hover:bg-white/10">
             <a href="/pricing">Preise</a>
           </Button>
-          <Button size="sm" onClick={onLoginClick}>
+          <Button size="sm" onClick={onLoginClick} className="bg-white/20 text-white hover:bg-white/30 border border-white/30">
             Anmelden
           </Button>
         </div>
