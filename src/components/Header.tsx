@@ -1,5 +1,5 @@
 import { Moon, Sun, LogIn, LogOut, Calculator, FolderOpen, CreditCard, Settings } from 'lucide-react';
-import logo from '@/assets/logo.svg';
+import logoHorizontal from '@/assets/logo-horizontal.svg';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/contexts/AuthContext';
 import { Link, useLocation } from 'react-router-dom';
@@ -52,9 +52,8 @@ export const Header = ({ onLoginClick }: HeaderProps) => {
   return (
     <header className="sticky top-0 z-50 w-full border-b" style={{ background: "url('/images/hero-bg.png') center/cover no-repeat" }}>
       <div className="container flex h-16 items-center justify-between">
-        <Link to="/" className="flex items-center gap-2">
-          <img src={logo} alt="Fintutto" className="h-8 w-8" />
-          <span className="text-2xl font-bold text-white">Fintutto</span>
+        <Link to="/" className="flex items-center">
+          <img src={logoHorizontal} alt="Fintutto Rechner" className="h-10" />
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
