@@ -30,7 +30,7 @@ export function MieterhoehungHeader({ onLoginClick }: MieterhoehungHeaderProps) 
 
 export function MieterhoehungHero() {
   return (
-    <div className="gradient-hero text-white py-12 px-4">
+    <div className="text-white py-12 px-4" style={{ background: "url('/images/hero-bg.png') center/cover no-repeat" }}>
       <div className="container">
         <div className="flex items-center gap-3 mb-4">
           <div className="p-2.5 bg-white/10 rounded-xl backdrop-blur-sm">
