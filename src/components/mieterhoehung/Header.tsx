@@ -8,7 +8,7 @@ interface MieterhoehungHeaderProps {
 
 export function MieterhoehungHeader({ onLoginClick }: MieterhoehungHeaderProps) {
   return (
-    <header className="border-b border-white/20 sticky top-0 z-50" style={{ background: "url('/images/hero-bg.png') center/cover no-repeat" }}>
+    <header className="sticky top-0 z-50" style={{ background: "url('/images/hero-bg.png') center/cover no-repeat" }}>
       <div className="container flex items-center justify-between h-16">
         <div className="flex items-center gap-2">
           <img src={logo} alt="Fintutto" className="h-8 w-8" />
