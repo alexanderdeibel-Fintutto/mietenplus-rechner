@@ -1,5 +1,5 @@
 import { Moon, Sun, LogIn, LogOut, Calculator, FolderOpen, CreditCard, Settings } from 'lucide-react';
-import logoHorizontal from '@/assets/logo-horizontal.svg';
+import logoHorizontal from '@/assets/logo-rendite-horizontal.svg';
 import { Button } from '@/components/ui/button';
 import { useAuth } from '@/contexts/AuthContext';
 import { Link, useLocation } from 'react-router-dom';
