@@ -1,5 +1,6 @@
-import { Building2, Scale } from 'lucide-react';
+import { Scale } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import logo from '@/assets/logo.svg';
 
 interface MieterhoehungHeaderProps {
   onLoginClick?: () => void;
@@ -10,9 +11,7 @@ export function MieterhoehungHeader({ onLoginClick }: MieterhoehungHeaderProps) 
     <header className="border-b border-border bg-card/80 backdrop-blur-sm sticky top-0 z-50">
       <div className="container flex items-center justify-between h-16">
         <div className="flex items-center gap-2">
-          <div className="p-2 bg-primary/10 rounded-lg">
-            <Building2 className="h-5 w-5 text-primary" />
-          </div>
+          <img src={logo} alt="Fintutto" className="h-8 w-8" />
           <span className="font-heading font-semibold text-lg">Mieterhöhungs-Rechner</span>
         </div>
         
